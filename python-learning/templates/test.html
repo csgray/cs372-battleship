@@ -1,1 +1,13 @@
-<h1>Hello:::: {{name}} + !!!!!!!!</h1>
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="block1">
+    <h1>Hello {{name}}!</h1>
+        <h2>Here is an interesting quote for you:  </h2>
+        <p>
+           {{quote}}
+        </p>
+        <img src="https://cdn.pixabay.com/photo/2017/02/20/10/09/snake-2082037_1280.png">
+</div>
+
+{% endblock %}
