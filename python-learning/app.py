@@ -1,12 +1,24 @@
+import pygame
+import sys
+from pygame.locals import *
 from flask import Flask, flash, redirect, render_template, request, session, abort 
 from random import randint
 
+size = (100,30)
+
 app = Flask(__name__)
 
+pygame.init()
 @app.route("/")
 def index():
     return "Flask app!"
 
+@app.route("/game")
+def game():
+
+    _display_surf = pygame.display.set_mode (size, pygame.HWSURFACE | pygame.DOUBLEBUF)
+    pygame.display.set_caption('Battleship!!!!')
+    return "Game App"
 
 @app.route("/hello/<string:name>/")
 def hello(name):
