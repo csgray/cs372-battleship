@@ -13,6 +13,17 @@ What happens when three CS students are tasked with making a Battleship game?
 
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/cs372-battleship/Lobby)
 
+## Web Server
+We are using node.js http-server for development: https://www.npmjs.com/package/http-server
+ 
+Install node.js then in a terminal:
+
+```npm install -g http-server```
+
+Once http-server is installed, from the repo:
+
+```http-server```
+
 ## User Stories
 We each suggested features then individually and secretly assigned point values to them on a Fibonacci scale. Then we averaged the results and rounded up to the next number in the sequence.
 
