@@ -12,6 +12,7 @@
             var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create });
 
             function preload () {
+                game.load.image('grid', './assets/grid2.png');
                 game.load.image('carrier', './assets/carrierHull.png');
                 game.load.image('battleship', './assets/battleshipHull.png');
                 game.load.image('cruiser', './assets/cruiserHull.png');
@@ -20,8 +21,8 @@
             }
 
             function create () {
-                var carrier = game.add.sprite(game.world.centerX, game.world.centerY, 'carrier');
-                carrier.anchor.setTo(0.5, 0.5);
+                var targetGrid = game.add.sprite(90, 112, 'grid');
+                var shipGrid = game.add.sprite(660, 112, 'grid');
             }
         };
 
