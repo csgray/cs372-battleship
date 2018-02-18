@@ -9,7 +9,7 @@
 ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝     
 ```
 
-What happens when three CS students are tasked with making a Battleship game?
+[What happens when three CS students are tasked with making a Battleship game?](https://csgray.github.io/cs372-battleship/)
 
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/cs372-battleship/Lobby)
 
@@ -22,10 +22,11 @@ Install node.js then in a terminal:
 
 Once http-server is installed, from the repo:
 
-```http-server```
+```http-server ./docs```
 
 ## User Stories
 We each suggested features then individually and secretly assigned point values to them on a Fibonacci scale. Then we averaged the results and rounded up to the next number in the sequence.
+These User Storeis are now cards on the "Battleship!" project board.
 
 | **Title**               | **Description**                                                                                                                                      | **Points** |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
