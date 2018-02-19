@@ -21,7 +21,7 @@
                 game.load.image('damage', './assets/x-graphic.png');
             }
             var sprite;
-
+            var text;
             function create () {
                 //  To make the sprite move we need to enable Arcade Physics
                 game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -31,7 +31,7 @@
                 shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
                 shipGrid = game.add.sprite(660, 112, 'grid');
                 damage = game.add.sprite(705,157, 'damage');
-
+                text = game.add.text(16, 16, 'Drag the sprites. Overlapping: false', { fill: '#ffffff' });
                 
                 ships =[carrier = game.add.sprite(705, 157, 'carrier'),
                         battleship = game.add.sprite(750, 157, 'battleship'),
@@ -51,6 +51,12 @@
             }
 
             function update () {
+                if (checkOverlap(cruiser, battleship)){
+                    text.text = 'Ships overlapping'
+                }
+                else {
+                    text.text = 'Not overlapping'
+                }
             }
 
             function doubleTap(sprite, pointer) {
@@ -58,9 +64,14 @@
                     sprite.angle+=90;
                 }
             }
+            function checkOverlap(spriteA, spriteB) {
+                var boundsA = spriteA.getBounds();
+                var boundsB = spriteB.getBounds();
+
+                return Phaser.Rectangle.intersects(boundsA, boundsB);
+            }
+
         }
-
-
     </script>
     </body>
 </html>
