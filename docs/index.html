@@ -18,11 +18,22 @@
                 game.load.image('cruiser', './assets/cruiser - 3.png');
                 game.load.image('submarine', './assets/submarine - 3.png');
                 game.load.image('destroyer', './assets/destroyer - 2.png');
+                game.load.image('damage', './assets/x-graphic.png');
             }
 
             function create () {
-                var targetGrid = game.add.sprite(90, 112, 'grid');
-                var shipGrid = game.add.sprite(660, 112, 'grid');
+                targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
+                targetGrid = game.add.sprite(90, 112, 'grid');
+                shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
+                shipGrid = game.add.sprite(660, 112, 'grid');
+
+                carrier = game.add.sprite(705, 157, 'carrier');
+                battleship = game.add.sprite(750, 157, 'battleship');
+                cruiser = game.add.sprite(795, 157, 'cruiser');
+                submarine = game.add.sprite(840, 157, 'submarine');
+                destroyer = game.add.sprite(885, 157, 'destroyer');
+
+                damage = game.add.sprite(705,157, 'damage');
             }
         };
 
