@@ -35,11 +35,15 @@
                         cruiser = game.add.sprite(795, 157, 'cruiser'),
                         submarine = game.add.sprite(840, 157, 'submarine'),
                         destroyer = game.add.sprite(885, 157, 'destroyer')
-                        ]
-                carrier.inputEnabled = true;
+                        ];
+                
+                ships.forEach(function(element) {
+                    element.inputEnabled = true;
+                    element.input.enableDrag();
+                    element.input.enableSnap(45,45,false,true, 30, 22);
+                });
 
-                carrier.input.enableDrag();
-                carrier.input.enableSnap(45,45,false,true, 30, 22);
+                
                 damage = game.add.sprite(705,157, 'damage');
 
                 //  And enable the Sprite to have a physics body:
