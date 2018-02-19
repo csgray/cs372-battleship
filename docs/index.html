@@ -30,6 +30,8 @@
                 targetGrid = game.add.sprite(90, 112, 'grid');
                 shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
                 shipGrid = game.add.sprite(660, 112, 'grid');
+                damage = game.add.sprite(705,157, 'damage');
+
                 ships =[carrier = game.add.sprite(705, 157, 'carrier'),
                         battleship = game.add.sprite(750, 157, 'battleship'),
                         cruiser = game.add.sprite(795, 157, 'cruiser'),
@@ -42,32 +44,7 @@
                     element.input.enableDrag();
                     element.input.enableSnap(45,45,false,true, 30, 22);
                 });
-
-                
-                damage = game.add.sprite(705,157, 'damage');
-
-                //  And enable the Sprite to have a physics body:
-                game.physics.arcade.enable(carrier);
             }
-
-            function update () {
-                //  If the sprite is > 8px away from the pointer then let's move to it
-                if (game.physics.arcade.distanceToPointer(carrier, game.input.activePointer) > 8)
-                {
-                    //  Make the object seek to the active pointer (mouse or touch).
-                    game.physics.arcade.moveToPointer(carrier, 300);
-                }
-                else
-                {
-                    //  Otherwise turn off velocity because we're close enough to the pointer
-                    carrier.body.velocity.set(0);
-                }
-            }
-
-            function render () {
-                game.debug.inputInfo(32, 32);
-            }
-
         }
 
     </script>
