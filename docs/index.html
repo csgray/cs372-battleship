@@ -10,8 +10,6 @@
         window.onload = function() {
 
             var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create });
-            var text;
-            var counter = 0;
 
             function preload () {
                 game.load.image('grid', './assets/grid2.png');
@@ -22,31 +20,49 @@
                 game.load.image('destroyer', './assets/destroyer - 2.png');
                 game.load.image('damage', './assets/x-graphic.png');
             }
+            var sprite;
 
             function create () {
+                //  To make the sprite move we need to enable Arcade Physics
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+
                 targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
                 targetGrid = game.add.sprite(90, 112, 'grid');
                 shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
                 shipGrid = game.add.sprite(660, 112, 'grid');
+                ships =[carrier = game.add.sprite(705, 157, 'carrier'),
+                        battleship = game.add.sprite(750, 157, 'battleship'),
+                        cruiser = game.add.sprite(795, 157, 'cruiser'),
+                        submarine = game.add.sprite(840, 157, 'submarine'),
+                        destroyer = game.add.sprite(885, 157, 'destroyer')
+                        ]
+                carrier.inputEnabled = true;
 
-                carrier = game.add.sprite(705, 157, 'carrier');
-               
-                battleship = game.add.sprite(750, 157, 'battleship');
-                cruiser = game.add.sprite(795, 157, 'cruiser');
-                submarine = game.add.sprite(840, 157, 'submarine');
-                destroyer = game.add.sprite(885, 157, 'destroyer');
-
+                carrier.input.enableDrag();
+                carrier.input.enableSnap(45,45,false,true, 30, 22);
                 damage = game.add.sprite(705,157, 'damage');
+
+                //  And enable the Sprite to have a physics body:
+                game.physics.arcade.enable(carrier);
             }
 
-            carrier.inputEnabled = true;
-            text = game.add.text(250, 16, '', { fill: '#FFF' });
-            carrier.events.onInputDown.add(listener, this);
+            function update () {
+                //  If the sprite is > 8px away from the pointer then let's move to it
+                if (game.physics.arcade.distanceToPointer(carrier, game.input.activePointer) > 8)
+                {
+                    //  Make the object seek to the active pointer (mouse or touch).
+                    game.physics.arcade.moveToPointer(carrier, 300);
+                }
+                else
+                {
+                    //  Otherwise turn off velocity because we're close enough to the pointer
+                    carrier.body.velocity.set(0);
+                }
+            }
 
-            function listener () {
-                counter++;
-                text.text = "You clicked " + counter + " times!";
-            };
+            function render () {
+                game.debug.inputInfo(32, 32);
+            }
 
         }
 
