@@ -10,6 +10,8 @@
         window.onload = function() {
 
             var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create });
+            var text;
+            var counter = 0;
 
             function preload () {
                 game.load.image('grid', './assets/grid2.png');
@@ -28,6 +30,7 @@
                 shipGrid = game.add.sprite(660, 112, 'grid');
 
                 carrier = game.add.sprite(705, 157, 'carrier');
+               
                 battleship = game.add.sprite(750, 157, 'battleship');
                 cruiser = game.add.sprite(795, 157, 'cruiser');
                 submarine = game.add.sprite(840, 157, 'submarine');
@@ -35,7 +38,17 @@
 
                 damage = game.add.sprite(705,157, 'damage');
             }
-        };
+
+            carrier.inputEnabled = true;
+            text = game.add.text(250, 16, '', { fill: '#FFF' });
+            carrier.events.onInputDown.add(listener, this);
+
+            function listener () {
+                counter++;
+                text.text = "You clicked " + counter + " times!";
+            };
+
+        }
 
     </script>
     </body>
