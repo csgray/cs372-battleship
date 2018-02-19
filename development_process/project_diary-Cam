@@ -37,3 +37,6 @@ in conjunction with http-server and node.js
 
 Duane, Corey and I got together. Got a basic board, assets and mouse events handled. This was our most prductive day thus far.
 -2/18/18
+
+Added the ability to rotate our ships and merged that branch back into master. Currently rotates kind of weird.
+-2/19/18
