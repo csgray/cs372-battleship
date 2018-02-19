@@ -31,7 +31,6 @@
                 shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
                 shipGrid = game.add.sprite(660, 112, 'grid');
                 damage = game.add.sprite(705,157, 'damage');
-                game.input.onTap.add(onTap, this);
 
                 
                 ships =[carrier = game.add.sprite(705, 157, 'carrier'),
@@ -47,19 +46,16 @@
                     element.input.enableDrag();
                     element.input.enableSnap(45,45,true,true, 30, 22);
                     element.input.boundsRect = shipBounds;
+                    element.events.onInputDown.add(doubleTap, this);
                 });
             }
 
             function update () {
             }
 
-            function onTap(pointer, doubleTap) {
-                if(doubleTap){
-                    carrier.angle+=90;
-                    battleship.angle+=90;
-                    cruiser.angle+=90;
-                    submarine.angle+=90;
-                    destroyer.angle+=90;
+            function doubleTap(sprite, pointer) {
+                if (pointer.msSinceLastClick < game.input.doubleTapRate) {
+                    sprite.angle+=90;
                 }
             }
         }
