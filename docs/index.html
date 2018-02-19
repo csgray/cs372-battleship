@@ -9,7 +9,7 @@
 
         window.onload = function() {
 
-            var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create });
+            var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
             function preload () {
                 game.load.image('grid', './assets/grid2.png');
@@ -31,6 +31,7 @@
                 shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
                 shipGrid = game.add.sprite(660, 112, 'grid');
                 damage = game.add.sprite(705,157, 'damage');
+                game.input.onTap.add(onTap, this);
 
                 
                 ships =[carrier = game.add.sprite(705, 157, 'carrier'),
@@ -48,7 +49,21 @@
                     element.input.boundsRect = shipBounds;
                 });
             }
+
+            function update () {
+            }
+
+            function onTap(pointer, doubleTap) {
+                if(doubleTap){
+                    carrier.angle+=90;
+                    battleship.angle+=90;
+                    cruiser.angle+=90;
+                    submarine.angle+=90;
+                    destroyer.angle+=90;
+                }
+            }
         }
+
 
     </script>
     </body>
