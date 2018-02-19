@@ -32,18 +32,20 @@
                 shipGrid = game.add.sprite(660, 112, 'grid');
                 damage = game.add.sprite(705,157, 'damage');
 
+                
                 ships =[carrier = game.add.sprite(705, 157, 'carrier'),
                         battleship = game.add.sprite(750, 157, 'battleship'),
                         cruiser = game.add.sprite(795, 157, 'cruiser'),
                         submarine = game.add.sprite(840, 157, 'submarine'),
                         destroyer = game.add.sprite(885, 157, 'destroyer')
                         ];
-                
+
+                shipBounds = new Phaser.Rectangle(705, 157, 450, 450);
                 ships.forEach(function(element) {
                     element.inputEnabled = true;
                     element.input.enableDrag();
-                    element.input.enableSnap(45,45,false,true, 30, 22);
-                    element.input.boundsSprite = shipGrid;
+                    element.input.enableSnap(45,45,true,true, 30, 22);
+                    element.input.boundsRect = shipBounds;
                 });
             }
         }
