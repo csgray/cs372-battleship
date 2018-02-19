@@ -19,6 +19,8 @@
                 game.load.image('submarine', './assets/submarine - 3.png');
                 game.load.image('destroyer', './assets/destroyer - 2.png');
                 game.load.image('damage', './assets/x-graphic.png');
+                game.load.image('hit', './assets/hit-token.png');
+                game.load.image('miss', './assets/miss-token.png');
             }
 
             function create () {
@@ -34,6 +36,8 @@
                 destroyer = game.add.sprite(885, 157, 'destroyer');
 
                 damage = game.add.sprite(705,157, 'damage');
+                hit = game.add.sprite(135, 157, 'hit');
+                miss = game.add.sprite(180, 157, 'miss');
             }
         };
 
