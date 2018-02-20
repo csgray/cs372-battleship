@@ -2,81 +2,16 @@
     <head>
         <meta charset="UTF-8"/>
         <title>CS372: Battleship!</title>
-        <script src="phaser.min.js"></script>
+        <script type="text/javascript" src="phaser.min.js"></script>
+        <script type="text/javascript" src="js/boot.js"></script>
+        <script type="text/javascript" src="js/load.js"></script>
+        <script type="text/javascript" src="js/pre.js"></script>
+        <!-- <script type="text/javascript" src="js/mainGame.js"></script>
+        <script type="text/javascript" src="js/win.js"></script> -->
+        <!-- game.js must be loaded last -->
+        <script type="text/javascript" src="js/game.js"></script>
     </head>
     <body>
-    <script type="text/javascript">
-
-        window.onload = function() {
-
-            var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
-            function preload () {
-                game.load.image('grid', './assets/grid2.png');
-                game.load.image('carrier', './assets/carrier - 5.png');
-                game.load.image('battleship', './assets/battleship - 4.png');
-                game.load.image('cruiser', './assets/cruiser - 3.png');
-                game.load.image('submarine', './assets/submarine - 3.png');
-                game.load.image('destroyer', './assets/destroyer - 2.png');
-                game.load.image('damage', './assets/x-graphic.png');
-                game.load.image('hit', './assets/hit-token.png');
-                game.load.image('miss', './assets/miss-token.png');
-            }
-            var sprite;
-            var text;
-            function create () {
-                //  To make the sprite move we need to enable Arcade Physics
-                game.physics.startSystem(Phaser.Physics.ARCADE);
-
-                targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
-                targetGrid = game.add.sprite(90, 112, 'grid');
-                shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
-                shipGrid = game.add.sprite(660, 112, 'grid');
-                damage = game.add.sprite(705,157, 'damage');
-                text = game.add.text(16, 16, 'Drag the sprites. Overlapping: false', { fill: '#ffffff' });
-                hit = game.add.sprite(135, 157, 'hit');
-                miss = game.add.sprite(180, 157, 'miss');
-                
-                ships =[carrier = game.add.sprite(705, 157, 'carrier'),
-                        battleship = game.add.sprite(750, 157, 'battleship'),
-                        cruiser = game.add.sprite(795, 157, 'cruiser'),
-                        submarine = game.add.sprite(840, 157, 'submarine'),
-                        destroyer = game.add.sprite(885, 157, 'destroyer')
-                        ];
-
-                shipBounds = new Phaser.Rectangle(705, 157, 450, 450);
-                ships.forEach(function(element) {
-                    element.inputEnabled = true;
-                    element.input.enableDrag();
-                    element.input.enableSnap(45,45,false,true, 30, 22);
-                    element.input.boundsRect = shipBounds;
-                    element.events.onInputDown.add(doubleTap, this);
-                });
-            }
-
-            function update () {
-                if (checkOverlap(cruiser, battleship)){
-                    text.text = 'Ships overlapping'
-                }
-                else {
-                    text.text = 'Not overlapping'
-                }
-            }
-
-            function doubleTap(sprite, pointer) {
-                if (pointer.msSinceLastClick < game.input.doubleTapRate) {
-                    sprite.angle+=90;
-                }
-            }
-            function checkOverlap(spriteA, spriteB) {
-                var boundsA = spriteA.getBounds();
-                var boundsB = spriteB.getBounds();
-
-                return Phaser.Rectangle.intersects(boundsA, boundsB);
-
-            }
-
-        }
-    </script>
+        <div id="gameDiv"></div>
     </body>
 </html>
