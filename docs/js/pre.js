@@ -6,14 +6,6 @@ var preState = {
         }
     },
 
-    checkOverlap: function(spriteA, spriteB) {
-        var boundsA = spriteA.getBounds();
-        var boundsB = spriteB.getBounds();
-
-        return Phaser.Rectangle.intersects(boundsA, boundsB);
-
-    },
-
     create: function() {
         targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
         targetGrid = game.add.sprite(90, 112, 'grid');
@@ -25,6 +17,8 @@ var preState = {
         miss = game.add.sprite(180, 157, 'miss');
 
         ships = game.add.group();
+        ships.enableBody = true;
+        ships.physicsBodyType = Phaser.Physics.ARCADE;
 
         carrier = ships.create(705, 157, 'carrier'),
         battleship = ships.create(750, 157, 'battleship'),
@@ -41,7 +35,7 @@ var preState = {
     },
 
     update: function() {
-        if (preState.checkOverlap(cruiser, battleship)){
+        if (game.physics.arcade.collide(ships,ships)){
             text.text = 'Ships overlapping'
         }
         else {
