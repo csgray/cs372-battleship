@@ -1,7 +1,7 @@
 # Project Diary
 
 ### 07 February 2018
-##### 1530 - 1630
+#### 1530 - 1630
 * Brainstormed user stories during class with Cameron.
 
 We came up with a rather elaborate version of Battleship for up to four players who cooperate against a kraken that is
@@ -10,7 +10,7 @@ the board of the hidden tentacles that lie in wait in front of their ships. If a
 damaged/destroyed, so players are forced to balance defeating the boss or preserving their ships. They have to hurry because if
 a ship reaches the whirlpool then it is destroyed. Ideally, this would be played online.
  
-##### 2000 - 2100
+#### 2000 - 2100
 * Transferred user stories to Google Sheet.
 * Created GitHub repo and Gitter integration.
 * Emailed Cameron and Duane.
@@ -21,7 +21,7 @@ town, can see them and add to them. I rewrote them to follow the "As a \<role\> 
 which seemed forced at times but worked out.
 
 ### 08 February 2018
-##### 2130 - 2200
+#### 2130 - 2200
 * Estimated user story difficulty using an asynchronous Planning Poker method on a Fibonacci scale.
 
 At work, we estimate the difficulty of our tasks by playing [Planning Poker](https://www.planningpoker.com/) with our
@@ -34,7 +34,7 @@ To actually play Planning Poker, everyone needs to be online at the same time. T
 of town, so I created separate sheets in the Google Doc. Everyone assigns their estimates on their own sheets without
 peeking at the other sheets.
 
-##### 2300 - 2310
+#### 2300 - 2310
 * Averaged scores.
 * Assigned final values to user stories.
 
@@ -42,7 +42,7 @@ Once everyone put their estimates on their sheets, I averaged them together and 
 them real quick before class when everyone can talk it out.
 
 ### 14 February 2018
-##### 1800 - 1845
+#### 1800 - 1845
 * Looked at Python options with Cameron then decided to use JavaScript instead.
 * Setup development environment.
 
@@ -56,7 +56,7 @@ I have not written JavaScript before, so I'll start by going through Udacity's
 [Intro to JavaScript](https://classroom.udacity.com/courses/ud803) course.
 
 ### 15 February 2018
-##### 1800 - 2000
+#### 1800 - 2000
 * Went through Phaser.io tutorial with Cameron and added it to the project.
 
 Cameron learned about [Phaser](http://phaser.io/) and thought it would be good for our project. We met in the Nook then
@@ -65,7 +65,7 @@ handles the complicated parts of making objects and we can host a development pl
 and test our changes as we make them.
 
 ### 18 February 2018
-##### 0030 - 0130
+#### 0030 - 0130
 * Configured GitHub Pages so that we can host the game on GitHub.
 * Verified with Phaser test app.
 * Tested and updated development environment instructions. 
@@ -77,7 +77,7 @@ setting up the development environment, but now [our game](https://csgray.github
 from anywhere in the world and automatically updates itself whenever we merge features into master. I also created cards
 on GitHub's Project board for our user stories so that we can experiment with a kanban board.
 
-##### 1330 - 1630
+#### 1330 - 1630
 * Created game grids.
 * Created ship sprites.
 * Created hit, miss, and damage tokens.
@@ -97,7 +97,7 @@ other's problems, but Duane even spotted errors in the graphics I put together i
 artist-types to agree to pair painting though.
 
 ### 25 February 2018
-##### 1500 - 1745
+#### 1500 - 1745
 * Tried to figure out ship rotation.
 * Removed redundant or half-formed code from master when that didn't work.
 * Made ships part of a Phaser group.
@@ -124,7 +124,7 @@ to fix our collision detection issues. Unless you try rotating the ships.
 
 A refactoring is on the horizon.
 
-##### 2100 - 2130 
+#### 2100 - 2130 
 * Updated project diary.
 
 Nothing special tonight. I added a couple of entries and fleshed out the rest with more details about what we did and
