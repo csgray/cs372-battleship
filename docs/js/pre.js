@@ -1,7 +1,20 @@
 var preState = {
+
+    doubleTap: function(sprite, pointer) {
+        if (pointer.msSinceLastClick < game.input.doubleTapRate) {
+            sprite.angle+=90;
+        }
+    },
+
+    checkOverlap: function(spriteA, spriteB) {
+        var boundsA = spriteA.getBounds();
+        var boundsB = spriteB.getBounds();
+
+        return Phaser.Rectangle.intersects(boundsA, boundsB);
+
+    },
+
     create: function() {
-        var sprite;
-        var text;
         targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
         targetGrid = game.add.sprite(90, 112, 'grid');
         shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
@@ -24,30 +37,16 @@ var preState = {
             element.input.enableDrag();
             element.input.enableSnap(45,45,false,true, 30, 22);
             element.input.boundsRect = shipBounds;
-            element.events.onInputDown.add(doubleTap, this);
+            element.events.onInputDown.add(preState.doubleTap, this);
         });
     },
 
     update: function() {
-        if (checkOverlap(cruiser, battleship)){
+        if (preState.checkOverlap(cruiser, battleship)){
             text.text = 'Ships overlapping'
         }
         else {
             text.text = 'Not overlapping'
         }
-    },
-
-    doubleTap: function(sprite, pointer) {
-        if (pointer.msSinceLastClick < game.input.doubleTapRate) {
-            sprite.angle+=90;
-        }
-    },
-
-    checkOverlap: function(spriteA, spriteB) {
-        var boundsA = spriteA.getBounds();
-        var boundsB = spriteB.getBounds();
-
-        return Phaser.Rectangle.intersects(boundsA, boundsB);
-
     }
 };
