@@ -40,3 +40,7 @@ Duane, Corey and I got together. Got a basic board, assets and mouse events hand
 
 Added the ability to rotate our ships and merged that branch back into master. Currently rotates kind of weird.
 -2/19/18
+
+Made the ships into a ship group, collision/overlap detection works and our game is now state-based. We still need to figure
+out how to make rotation bounding work properly.
+-2/25/18
