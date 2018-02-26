@@ -24,9 +24,11 @@ Once http-server is installed, from the repo:
 
 ```http-server ./docs```
 
+We are also using the open-source HTML5 game framework [Phaser.io](https://github.com/photonstorm/phaser), phaser.min.js is included with the Docs folder.
+
 ## User Stories
 We each suggested features then individually and secretly assigned point values to them on a Fibonacci scale. Then we averaged the results and rounded up to the next number in the sequence.
-These User Storeis are now cards on the "Battleship!" project board.
+These User Stories are now cards on the "Battleship!" project board.
 
 | **Title**               | **Description**                                                                                                                                      | **Points** |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------|

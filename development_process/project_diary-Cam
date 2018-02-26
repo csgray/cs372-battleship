@@ -30,3 +30,17 @@ Today is mainly a day about brainstorming so nothing too exciting to commit but 
 Today me and Duane did about 2.5 hours of Python and webdev learning. We added a folder called python-learning that has the files.
 Also added a url to the gitter chat which is a snake-game written all in python using asyncio. We did tutorials for python and flask today.
 -2/13/18
+
+Pair programmed with corey, learned about phaser.io and did tutorials. Got basic local webservers up and running using phaser.io
+in conjunction with http-server and node.js
+-2/15/18
+
+Duane, Corey and I got together. Got a basic board, assets and mouse events handled. This was our most prductive day thus far.
+-2/18/18
+
+Added the ability to rotate our ships and merged that branch back into master. Currently rotates kind of weird.
+-2/19/18
+
+Made the ships into a ship group, collision/overlap detection works and our game is now state-based. We still need to figure
+out how to make rotation bounding work properly.
+-2/25/18
