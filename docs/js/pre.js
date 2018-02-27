@@ -1,3 +1,10 @@
+function gameStart(button) {
+    if (!game.physics.arcade.collide(ships,ships)){
+            button.visible = false;
+            // Game start logic goes here
+        }
+}
+
 var preState = {
 
     doubleTap: function(sprite, pointer) {
@@ -5,6 +12,12 @@ var preState = {
             sprite.angle+=90;
         }
     },
+    //gameStart: function(button) {
+        //if (!game.physics.arcade.collide(ships,ships)){
+        //    button.visible = false;
+            // Game start logic goes here
+        //}
+    //},
 
     create: function() {
         targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
@@ -15,7 +28,7 @@ var preState = {
         hit = game.add.sprite(135, 157, 'hit');
         miss = game.add.sprite(180, 157, 'miss');
 
-        startButton = game.add.button(shipGrid.centerX, 45, 'startButton', null, this, 2, 1, 0);
+        startButton = game.add.button(shipGrid.centerX, 45, 'startButton', gameStart, this, 2, 1, 0);
         startButton.scale.setTo(0.25, 0.25);
 
         ships = game.add.group();
