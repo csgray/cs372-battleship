@@ -1,6 +1,9 @@
 function gameStart(button) {
     if (!game.physics.arcade.collide(ships,ships)){
             button.visible = false;
+            ships.forEach(function(element) {
+                element.inputEnabled = false;
+            });
             // Game start logic goes here
         }
 }
@@ -12,12 +15,6 @@ var preState = {
             sprite.angle+=90;
         }
     },
-    //gameStart: function(button) {
-        //if (!game.physics.arcade.collide(ships,ships)){
-        //    button.visible = false;
-            // Game start logic goes here
-        //}
-    //},
 
     create: function() {
         targetText = game.add.text(90, 60, 'Target Grid', { fontSize: '36px', fill: '#FFF' });
