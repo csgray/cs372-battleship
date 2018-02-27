@@ -9,6 +9,8 @@ var loadState = {
                 game.load.image('damage', './assets/x-graphic.png');
                 game.load.image('hit', './assets/hit-token.png');
                 game.load.image('miss', './assets/miss-token.png');
+                game.load.image('startButton', './assets/startButton.png');
+                game.load.image('startButtonInvalid', './assets/startButtonInvalid.png');
             },
 
     create: function() {
