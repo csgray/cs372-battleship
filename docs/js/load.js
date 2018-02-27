@@ -3,6 +3,9 @@ var loadState = {
                 game.load.image('grid', './assets/grid2.png');
                 game.load.image('carrier', './assets/carrier - 5.png');
                 game.load.image('battleship', './assets/battleship - 4.png');
+                game.load.image('battleship1', './assets/battleship - 4-90.png');
+                game.load.image('battleship2', './assets/battleship - 4-180.png');
+                game.load.image('battleship3', './assets/battleship - 4-270.png');
                 game.load.image('cruiser', './assets/cruiser - 3.png');
                 game.load.image('submarine', './assets/submarine - 3.png');
                 game.load.image('destroyer', './assets/destroyer - 2.png');

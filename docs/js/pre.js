@@ -19,7 +19,22 @@ var preState = {
 
     doubleTap: function(sprite, pointer) {
         if (pointer.msSinceLastClick < game.input.doubleTapRate) {
-            sprite.angle+=90;
+            //sprite.angle+=90;
+            battleship.angleHandler +=1;
+            if ((battleship.angleHandler %4) ==0) {
+                //Regular Sprite
+                battleship.loadTexture(battleship.name);
+            }
+            else if ((battleship.angleHandler %4) ==1) {
+                battleship.loadTexture(battleship.name + '1');
+            }
+            else if ((battleship.angleHandler %4) ==2) {
+                battleship.loadTexture(battleship.name + '2');
+            }
+            else if ((battleship.angleHandler %4) ==3) {
+                battleship.loadTexture(battleship.name + '3');
+            }
+            //battleship.loadTexture('battleship_rotated');
         }
     },
 
@@ -47,11 +62,15 @@ var preState = {
         submarine = ships.create(840, 157, 'submarine'),
         destroyer = ships.create(885, 157, 'destroyer')
 
+        shipBounds = new Phaser.Rectangle(705, 157, 450, 450);
         ships.forEach(function(element) {
             element.inputEnabled = true;
             element.input.enableDrag();
             element.input.enableSnap(45,45,false,true, 30, 22);
             element.events.onInputDown.add(preState.doubleTap, this);
+            element.input.boundsRect = shipBounds;
+            element.angleHandler = 0;
+            element.name = element.key;
         });
     },
 
