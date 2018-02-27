@@ -7,7 +7,14 @@ function gameStart(button) {
             // Game start logic goes here
         }
 }
-
+function over() {
+    if (!game.physics.arcade.collide(ships,ships)){
+        startButton.tint = 0x1E8449;
+    }
+}
+function out() {
+    startButton.tint = 0xffffff;
+}
 var preState = {
 
     doubleTap: function(sprite, pointer) {
@@ -27,6 +34,8 @@ var preState = {
 
         startButton = game.add.button(shipGrid.centerX, 45, 'startButton', gameStart, this, 2, 1, 0);
         startButton.scale.setTo(0.25, 0.25);
+        startButton.onInputOver.add(over, this);
+        startButton.onInputOut.add(out, this);
 
         ships = game.add.group();
         ships.enableBody = true;
