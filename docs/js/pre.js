@@ -27,26 +27,14 @@ var preState = {
                 index = ships.getIndex(sprite)-5;
             }
             ships.getAt(index).angleHandler +=1;
-            if ((ships.getAt(index).angleHandler %4) ==0) {
+            if ((ships.getAt(index).angleHandler %2) ==0) {
                 //Regular Sprite
                 ships.getAt(index+5).kill();
                 ships.getAt(index).revive();
                 ships.getAt(index).x = ships.getAt(index+5).x;
                 ships.getAt(index).y = ships.getAt(index+5).y;
             }
-            else if ((ships.getAt(index).angleHandler %4) ==1) {
-                ships.getAt(index).kill();
-                ships.getAt(index+5).revive();
-                ships.getAt(index+5).x = ships.getAt(index).x;
-                ships.getAt(index+5).y = ships.getAt(index).y;
-            }
-            else if ((ships.getAt(index).angleHandler %4) ==2) {
-                ships.getAt(index+5).kill();
-                ships.getAt(index).revive();
-                ships.getAt(index).x = ships.getAt(index+5).x;
-                ships.getAt(index).y = ships.getAt(index+5).y;
-            }
-            else if ((ships.getAt(index).angleHandler %4) ==3) {
+            else if ((ships.getAt(index).angleHandler %2) ==1) {
                 ships.getAt(index).kill();
                 ships.getAt(index+5).revive();
                 ships.getAt(index+5).x = ships.getAt(index).x;
