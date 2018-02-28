@@ -1,3 +1,20 @@
+function gameStart(button) {
+    if (!game.physics.arcade.collide(ships,ships)){
+            button.visible = false;
+            ships.forEach(function(element) {
+                element.inputEnabled = false;
+            });
+            // Game start logic goes here
+        }
+}
+function over() {
+    if (!game.physics.arcade.collide(ships,ships)){
+        startButton.tint = 0x1E8449;
+    }
+}
+function out() {
+    startButton.tint = 0xffffff;
+}
 var preState = {
 
     doubleTap: function(sprite, pointer) {
@@ -12,9 +29,13 @@ var preState = {
         shipText = game.add.text(660, 60, 'Your Ships', { fontSize: '36px', fill: '#FFF' });
         shipGrid = game.add.sprite(660, 112, 'grid');
         damage = game.add.sprite(705,157, 'damage');
-        text = game.add.text(16, 16, 'Drag the sprites. Overlapping: false', { fill: '#ffffff' });
         hit = game.add.sprite(135, 157, 'hit');
         miss = game.add.sprite(180, 157, 'miss');
+
+        startButton = game.add.button(shipGrid.centerX, 45, 'startButton', gameStart, this, 2, 1, 0);
+        startButton.scale.setTo(0.25, 0.25);
+        startButton.onInputOver.add(over, this);
+        startButton.onInputOut.add(out, this);
 
         ships = game.add.group();
         ships.enableBody = true;
@@ -36,10 +57,10 @@ var preState = {
 
     update: function() {
         if (game.physics.arcade.collide(ships,ships)){
-            text.text = 'Ships overlapping'
+            startButton.loadTexture('startButtonInvalid');
         }
         else {
-            text.text = 'Not overlapping'
+            startButton.loadTexture('startButton');
         }
     }
 };
