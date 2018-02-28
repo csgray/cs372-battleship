@@ -33,13 +33,16 @@ var preState = {
                 ships.getAt(index).revive();
                 ships.getAt(index).x = ships.getAt(index+5).x;
                 ships.getAt(index).y = ships.getAt(index+5).y;
+                ships.getAt(index).loadTexture(ships.getAt(index).key.slice(0,-1) + (ships.getAt(index).angleHandler % 4));
             }
             else if ((ships.getAt(index).angleHandler %2) ==1) {
                 ships.getAt(index).kill();
                 ships.getAt(index+5).revive();
                 ships.getAt(index+5).x = ships.getAt(index).x;
                 ships.getAt(index+5).y = ships.getAt(index).y;
+                ships.getAt(index+5).loadTexture(ships.getAt(index).key.slice(0,-1) + (ships.getAt(index).angleHandler % 4));
             }
+
         }
     },
 
@@ -61,11 +64,11 @@ var preState = {
         ships.enableBody = true;
         ships.physicsBodyType = Phaser.Physics.ARCADE;
 
-        carrier = ships.create(705, 157, 'carrier'),
-        battleship = ships.create(750, 157, 'battleship'),
-        cruiser = ships.create(795, 157, 'cruiser'),
-        submarine = ships.create(840, 157, 'submarine'),
-        destroyer = ships.create(885, 157, 'destroyer'),
+        carrier = ships.create(705, 157, 'carrier0'),
+        battleship = ships.create(750, 157, 'battleship0'),
+        cruiser = ships.create(795, 157, 'cruiser0'),
+        submarine = ships.create(840, 157, 'submarine0'),
+        destroyer = ships.create(885, 157, 'destroyer0'),
         carrierhorizontal = ships.create(705, 157, 'carrier1'),
         battleshiphorizontal = ships.create(750, 157, 'battleship1'),
         cruiserhorizontal = ships.create(795, 157, 'cruiser1'),
