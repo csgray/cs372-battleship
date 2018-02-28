@@ -44,3 +44,11 @@ Added the ability to rotate our ships and merged that branch back into master. C
 Made the ships into a ship group, collision/overlap detection works and our game is now state-based. We still need to figure
 out how to make rotation bounding work properly.
 -2/25/18
+
+Fixed some PNGs for Duane. This was a fun project. I think my final thoughts on the matter and the project are: 
+
+Pair programming (triplet programming) is a really powerful and useful tool. As is agile development. Often at work I 
+will sit down and think about what classes I need to make, make a prototype and it feels like when I'm finally going it's
+a few days later and even then I will find I don't need half the crap I put in there. If we follow the agile mantra we will 
+test often and develop quickly with faster results. I will incorporate some of the mantras in my day to day coding life 
+most definitely.
