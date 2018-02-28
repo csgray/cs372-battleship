@@ -19,7 +19,39 @@ var preState = {
 
     doubleTap: function(sprite, pointer) {
         if (pointer.msSinceLastClick < game.input.doubleTapRate) {
-            sprite.angle+=90;
+            var index;
+            if (ships.getIndex(sprite) <5) {
+                index = ships.getIndex(sprite);
+            }
+            else {
+                index = ships.getIndex(sprite)-5;
+            }
+            ships.getAt(index).angleHandler +=1;
+            if ((ships.getAt(index).angleHandler %4) ==0) {
+                //Regular Sprite
+                ships.getAt(index+5).kill();
+                ships.getAt(index).revive();
+                ships.getAt(index).x = ships.getAt(index+5).x;
+                ships.getAt(index).y = ships.getAt(index+5).y;
+            }
+            else if ((ships.getAt(index).angleHandler %4) ==1) {
+                ships.getAt(index).kill();
+                ships.getAt(index+5).revive();
+                ships.getAt(index+5).x = ships.getAt(index).x;
+                ships.getAt(index+5).y = ships.getAt(index).y;
+            }
+            else if ((ships.getAt(index).angleHandler %4) ==2) {
+                ships.getAt(index+5).kill();
+                ships.getAt(index).revive();
+                ships.getAt(index).x = ships.getAt(index+5).x;
+                ships.getAt(index).y = ships.getAt(index+5).y;
+            }
+            else if ((ships.getAt(index).angleHandler %4) ==3) {
+                ships.getAt(index).kill();
+                ships.getAt(index+5).revive();
+                ships.getAt(index+5).x = ships.getAt(index).x;
+                ships.getAt(index+5).y = ships.getAt(index).y;
+            }
         }
     },
 
@@ -45,18 +77,32 @@ var preState = {
         battleship = ships.create(750, 157, 'battleship'),
         cruiser = ships.create(795, 157, 'cruiser'),
         submarine = ships.create(840, 157, 'submarine'),
-        destroyer = ships.create(885, 157, 'destroyer')
+        destroyer = ships.create(885, 157, 'destroyer'),
+        carrierhorizontal = ships.create(705, 157, 'carrier1'),
+        battleshiphorizontal = ships.create(750, 157, 'battleship1'),
+        cruiserhorizontal = ships.create(795, 157, 'cruiser1'),
+        submarinehorizontal = ships.create(840, 157, 'submarine1'),
+        destroyerhorizontal = ships.create(885, 157, 'destroyer1'),
 
+
+        shipBounds = new Phaser.Rectangle(705, 157, 450, 450);
         ships.forEach(function(element) {
             element.inputEnabled = true;
             element.input.enableDrag();
             element.input.enableSnap(45,45,false,true, 30, 22);
             element.events.onInputDown.add(preState.doubleTap, this);
+            element.input.boundsRect = shipBounds;
+            element.angleHandler = 0;
         });
+        carrierhorizontal.kill();
+        battleshiphorizontal.kill();
+        cruiserhorizontal.kill();
+        submarinehorizontal.kill();
+        destroyerhorizontal.kill();
     },
 
     update: function() {
-        if (game.physics.arcade.collide(ships,ships)){
+        if (game.physics.arcade.collide(ships,ships)) {
             startButton.loadTexture('startButtonInvalid');
         }
         else {
